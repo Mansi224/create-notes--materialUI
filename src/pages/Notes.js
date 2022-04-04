@@ -1,10 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import { Container } from "@material-ui/core";
-import NoteCard from "../components/NoteCard";
+import Container from "@material-ui/core/Container";
 import Masonry from "react-masonry-css";
-import { dividerClasses } from "@mui/material";
+import NoteCard from "../components/NoteCard";
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -19,7 +16,6 @@ export default function Notes() {
     await fetch("http://localhost:8000/notes/" + id, {
       method: "DELETE",
     });
-
     const newNotes = notes.filter((note) => note.id != id);
     setNotes(newNotes);
   };
